@@ -3,6 +3,7 @@
 langages_opt=(
   "-c"
   "-cpp"
+  "-zig"
 )
 
 langages_asked=$1
@@ -78,6 +79,12 @@ int main(int argc, char* argv[]){
   fi
 
   echo "Tout s'est bien passé !"
+
+elif [[ "$langages_asked" = "${langages_opt[2]}" ]]; then
+    if ! zig build init; then
+        echo "Zig build init a échoué"
+        exit 1
+    fi
 
 else
   echo "----create project-------"

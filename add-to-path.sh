@@ -1,17 +1,6 @@
 #!/usr/bin/env bash
-
-# On vérifie d'abord si on a des privilèges
-if [[ "$EUID" != 0 ]]; then
-  echo "Sudo nécéssaire"
-  exit 1
-fi
-#On vérifie si c'est nien sudo ou non
-if [[ ! -n "$SUDO_USER" ]]; then
-  echo "Lancé avec root, sudo seulement"
-  exit 1
-fi
 # Tout est bon
-Bin_path="/home/$SUDO_USER/.local/bin"
+Bin_path="/home/$USER/.local/bin"
 
 # Les tableaux
 options=("-sh")
